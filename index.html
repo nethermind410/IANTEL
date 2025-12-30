@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>IANTEDL — Personal Intelligence Briefing</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">I</div>
+      <div class="brand-text">
+        <div class="title">IANTEL</div>
+        <div class="subtitle">personal intelligence briefing</div>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <button id="btnMagnify" class="iconbtn" title="Magnifier">🔍</button>
+      <button id="btnSettings" class="iconbtn" title="Settings">⚙️</button>
+      <div class="chip" id="chipNote">merry xmas love your family</div>
+    </div>
+  </div>
+
+  <div id="settingsPanel" class="panel hidden" role="dialog" aria-label="Settings">
+    <div class="panel-header">
+      <div class="panel-title">settings</div>
+      <button id="btnCloseSettings" class="iconbtn">✕</button>
+    </div>
+    <div class="panel-row">
+      <label>text size</label>
+      <select id="selText">
+        <option value="normal">normal</option>
+        <option value="large" selected>large</option>
+        <option value="xl">xl</option>
+      </select>
+    </div>
+    <div class="panel-row">
+      <label>soft click sounds</label>
+      <input type="checkbox" id="chkClicks" checked/>
+    </div>
+    <div class="hint">Tip: most browsers block audio until you click once.</div>
+  </div>
+
+  <main class="layout">
+    <section class="left">
+      <div class="card">
+        <div class="h1">good to see you, <span class="accent">poppa</span></div>
+        <div class="small">hope the day’s been kind so far.</div>
+
+        <div class="listening">
+          <div class="listening-left">
+            <div class="kicker">LISTENING MODE</div>
+            <div class="station" id="stationName">Radio Swiss Jazz</div>
+            <div class="small" id="stationStatus">ready when you are.</div>
+          </div>
+          <div class="listening-right">
+            <button id="btnPlay" class="btn">▶ play</button>
+            <button id="btnStation" class="btn ghost">change station</button>
+          </div>
+        </div>
+
+        <audio id="radio" preload="none" crossorigin="anonymous"></audio>
+      </div>
+
+      <div class="card">
+        <div class="kicker">MESSAGE FROM YOUR FAMILY</div>
+        <div id="familyMsg" class="msgbox">loading…</div>
+        <div class="row">
+          <button id="btnNewMsg" class="btn ghost">new message</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">CRYPTO MARKET SNAPSHOT</div>
+        <div class="small" id="snapMeta">loading…</div>
+        <div class="tablewrap">
+          <table class="table" id="snapTable">
+            <thead>
+              <tr><th>coin</th><th>price</th><th>24h</th><th>mcap</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">TOPICS FOR TODAY</div>
+        <div class="topics">
+          <button class="topic active" data-section="crypto">💰 crypto</button>
+          <button class="topic active" data-section="markets">📈 markets</button>
+          <button class="topic active" data-section="built">🏗️ built env</button>
+          <button class="topic active" data-section="reading">📚 reading</button>
+          <button class="topic active" data-section="garden">🌿 garden & land</button>
+          <button class="topic active" data-section="ears">🎧 for your ears only</button>
+        </div>
+        <button id="btnGenerate" class="btn primary">generate briefing</button>
+        <div id="status" class="toast hidden">…</div>
+      </div>
+
+      <div class="footer">LOVE YOUR FAMILY ♥</div>
+    </section>
+
+    <section class="right">
+      <div class="card big">
+        <div class="right-top">
+          <div>
+            <div class="h1">today’s briefing</div>
+            <div class="quote" id="quote">curiosity first. certainty later.</div>
+          </div>
+          <div class="meta" id="meta">updated —</div>
+        </div>
+
+        <div class="grid" id="briefGrid">
+          <!-- sections rendered here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
